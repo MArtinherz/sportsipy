@@ -387,7 +387,11 @@ class Boxscore:
         """
         records = boxscore(BOXSCORE_SCHEME[field]).items()
         records = [x.text() for x in records if x.text() != '']
-        return records[index]
+        
+        if len(records) > index:
+          return records[index]
+        else:
+          return ''
 
     def _find_boxscore_tables(self, boxscore):
         """
